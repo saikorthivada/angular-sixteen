@@ -1,20 +1,15 @@
 import { Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    loadComponent: () => import('./login/login.component').then(c => c.LoginComponent)
-  },
-  {
     path: 'login/:id',
-    loadComponent: () => import('./login/login.component').then(c => c.LoginComponent),
+    component: LoginComponent,
     data: {
-      role: 'ADMIN'
+      role: 'SUPER_ADMIN'
+    },
+    resolve: {
+      message: () => 'Standalone Resolver'
     }
   }
 ];

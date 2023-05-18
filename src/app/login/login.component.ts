@@ -10,7 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
 
-  @Input() role?: string;
-  @Input() id?: string;
+  // This input decorators comes from route
+  @Input() id!: string;
 
+  @Input() queryParam!: string;
+
+  @Input() role!: string;
+
+  @Input() message!: string;
 }
