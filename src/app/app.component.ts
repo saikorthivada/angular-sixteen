@@ -1,7 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
+export const broadCastChannel = new BroadcastChannel('authentication');
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,4 +11,13 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private router: Router) {
+    broadCastChannel.onmessage = (event) => {
+      console.log(event);
+      if(event.data == 'Logout') {
+        this.router.navigate(['login']);
+      }
+    }
+  }
 }
