@@ -1,3 +1,15 @@
-<h1>Angular 16 application Standalone approach</h1>
+<h3 style="color: green;">
+  Angular 16 application - Signals, Effects, Observables and untack techniques
+</h3>
 
-<router-outlet></router-outlet>
+<h4>Name Signal Value - {{nameSignal()}}</h4>
+<button (click)="updateName()">Update Signal name</button>
+<button (click)="initEffect()">Init Signal Listener</button>
+<button (click)="removeEffect()">Remove Signal Listener</button>
+
+<br>
+<br>
+<button (click)="updateCounter()">Update counter - {{counter()}}</button>
+<button (click)="updateAge()">Update age - {{age()}}</button>
+
+<h4>Computed Value - {{totalValue}}</h4>
